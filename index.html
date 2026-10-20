@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programacion Web</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+</head>
+
+<body>
+
+  <h1 class="titulo1">Formulario - Contactanos</h1>
+
+  <div class="cont_form">
+
+    <div class="cont_datos">
+      <p><span>*</span> Nombre:</p>
+      <p>Email:</p>
+      <p>Teléfono:</p>
+      <p><span>*</span> Fecha:</p>
+      <p><span>*</span> Comentarios:</p>
+    </div>
+
+    <form id="formulariocomentarios" class="cont_formulario" action="guardar.php" method="get" name="formulario_contactos">
+
+      <input type="text" id="nombre" class="elementos" name="nombre" required>
+
+      <input type="email" class="elementos" name="correo">
+
+      <input type="tel" pattern="[0-9]{10}" class="elementos" name="telefono" placeholder="Ejem: 9991234587">
+
+      <input id="fecha" type="date" name="fecha_nacimiento" class="elementos" required>
+
+      <textarea id="comentarios" name="comentarios" class="elementos" required></textarea>
+
+      <button id="btn_validar" type="button" class="boton_rojo">Enviar formulario</button>
+
+    </form>
+
+  </div>
+
+  <!-- Función para validaciónes -->
+  <script>
+
+    $("#btn_validar").click(function() {7
+
+      // Validar nombre
+      if($("#nombre").val().trim() == '') {
+        alert("Escribe tu nombre");
+        $("#nombre").focus();
+        return 0;
+      }
+
+      // Validar fecha
+      if($("#fecha").val().trim() == '') {
+        alert("Escoge tu fecha");
+        $("#fecha").focus();
+        return 0;
+      }
+
+      // Validar comentario
+      if($("#comentarios").val().trim() == '') {
+        alert("Escribe tu comentario");
+        $("#comentarios").focus();
+        return 0;
+      }
+
+      $("#formulariocomentarios").submit();
+
+    });
+
+  </script>
+
+</body>
+</html>
